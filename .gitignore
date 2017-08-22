@@ -1,0 +1,11 @@
+.idea/
+bower_components/
+node_modules/
+
+/assets/css/style.css
+/assets/images/svg-images-sprite.svg
+
+/*.html
+!/src/**/*.html
+
+

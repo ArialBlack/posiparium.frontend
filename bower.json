@@ -1,0 +1,21 @@
+{
+  "name": "posipaky2.frontend",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ArialBlack"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}
