@@ -6,8 +6,7 @@ module.exports = function(grunt) {
         svgstore: {
             logos: {
                 files: {
-                    'assets/images/svg-images-sprite.svg': 'assets/images/svg/logo/*.svg'
-                    //use like <span class="svg-image logo"><svg preserveAspectRatio="xMidYMid" focusable="false"><use xlink:href="/app-assets/images/svg-images-sprite.svg#bihus-logo"></use></svg></span>
+                    'assets/images/svg/svg-images-sprite.svg': 'assets/images/svg/logo/*.svg'
                 }
             }
         },
@@ -86,7 +85,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
-   // grunt.loadNpmTasks('grunt-svgstore');
+    grunt.loadNpmTasks('grunt-svgstore');
 
-    grunt.registerTask('default', [/*'svgstore',  */ 'bake', 'sass:main', 'browserSync', 'watch']);
+    grunt.registerTask('default', ['svgstore' , 'bake', 'sass:main', 'browserSync', 'watch']);
 };

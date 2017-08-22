@@ -11,69 +11,82 @@
 
     <link href="/assets/css/style.css" rel="stylesheet">
 </head>
-<body>
 
-<div id="fb-root"></div>
-<!--(bake parts/front-nav.html)-->
+<body class="front">
 
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=137769152977340";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <!--(bake parts/front-nav.html)-->
 
-<div class="container">
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=137769152977340";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-    </div>
+    <section class="jumbotron">
+        <div class="container">
+            <div class="intro text-sm-center">
+                <h1>Posiparium</h1>
+                <p class="lead">Помічники народних депутатівTML document.</p>
+                <p class="small">Відкрита база даних помічників народних депутатів України створена на основі офіційної інформації Апарату Верховної Ради України.</p>
+            </div>
 
-</div><!-- /.container -->
+            <div class="small-search">
+                <!--(bake parts/small-search-form.html)-->
+            </div>
 
-<!--(bake parts/footer.html)-->
+        </div>
+    </section>
 
+    <section class="map" id="ua-map">
+        <div class="container">
+            <span class="svg-image" data-json="https://api.myjson.com/bins/1cgozx">
+                <!--(bake ua-map.svg)-->
+            </span>
+        </div>
+    </section>
 
-<!-- Bootstrap core JavaScript-->
-<script src="/bower_components/jquery/dist/jquery.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
-<script src="/bower_components/tether/dist/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--(bake parts/footer.html)-->
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-<script>window.twttr = (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-    if (d.getElementById(id)) return t;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
+    <script src="/assets/js/main.js"></script>
 
-    t._e = [];
-    t.ready = function(f) {
-        t._e.push(f);
-    };
+    <script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
 
-    return t;
-}(document, "script", "twitter-wjs"));</script>
+        t._e = [];
+        t.ready = function(f) {
+            t._e.push(f);
+        };
 
-<script src="https://apis.google.com/js/platform.js"></script>
-<script>
-    function onYtEvent(payload) {
-        if (payload.eventType == 'subscribe') {
-            // Add code to handle subscribe event.
-        } else if (payload.eventType == 'unsubscribe') {
-            // Add code to handle unsubscribe event.
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script>
+        function onYtEvent(payload) {
+            if (payload.eventType == 'subscribe') {
+                // Add code to handle subscribe event.
+            } else if (payload.eventType == 'unsubscribe') {
+                // Add code to handle unsubscribe event.
+            }
+            if (window.console) { // for debugging only
+                window.console.log('YT event: ', payload);
+            }
         }
-        if (window.console) { // for debugging only
-            window.console.log('YT event: ', payload);
-        }
-    }
-</script>
+    </script>
 </body>
 </html>
