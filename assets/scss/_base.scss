@@ -5,9 +5,13 @@
   font-size: 0;
 }
 
+.popover {
+  p {
+    margin-bottom: 0;
+  }
+}
+
 #ua-map {
-
-
   .svg-image {
     display: block;
     width: 100%;

@@ -111,11 +111,9 @@ document.addEventListener(
         });
 
         $(document).on('click', '#clear-filters', function(){
-            $('input[name="declaration_year"]').val('');
-            $('input[name="doc_type"]').val('');
             $('input[name="region_value"]').val('');
             setDropdownsValue();
-            $(":checked").attr('checked', false);
+            $(":checked").prop('checked', false);
         });
 
         $(document).on('submit', '#ex-form', function(){
@@ -133,13 +131,63 @@ document.addEventListener(
         });
     }
 
-    function populateSVGmap() {
+    function populateUaMap() {
         var $container = $('#ua-map .svg-image'),
             json = $container.data('json'),
             $svgPaths = $container.find('svg path');
 
         $.getJSON( json, {format: "json"})
             .done(function( data ) {
+
+                $('#ua-map-table').dataTable({
+                    "responsive": true,
+                    "autoWidth": true,
+                    "paging": false,
+                    "searching": false,
+                    "info": false,
+                    "filter": false,
+                    "language": {
+                        "sProcessing":   "Зачекайте...",
+                        "sLengthMenu":   "Показати _MENU_ записів",
+                        "sZeroRecords":  "Записи відсутні.",
+                        "sInfo":         "Записи з _START_ по _END_ із _TOTAL_ записів",
+                        "sInfoEmpty":    "Записи з 0 по 0 із 0 записів",
+                        "sInfoFiltered": "(відфільтровано з _MAX_ записів)",
+                        "sInfoPostFix":  "",
+                        "sSearch":       "Пошук:",
+                        "sUrl":          "",
+                        "oPaginate": {
+                            "sFirst": "Перша",
+                            "sPrevious": "Попередня",
+                            "sNext": "Наступна",
+                            "sLast": "Остання"
+                        },
+                        "oAria": {
+                            "sSortAscending":  ": активувати для сортування стовпців за зростанням",
+                            "sSortDescending": ": активувати для сортування стовпців за спаданням"
+                        }
+                    },
+                    "pageLength": 5,
+                    "pagingType": "simple",
+                    "aaData": data,
+                    "aoColumns": [{
+                        "mDataProp": "id",
+                        "sTitle":"id"
+                    }, {
+                        "mDataProp": "oblast",
+                        "sTitle":"Область"
+                    }, {
+                        "mDataProp": "pep",
+                        "sTitle":"Пепів"
+                    }, {
+                        "mDataProp": "posipak",
+                        "sTitle":"Посіпак"
+                    }, {
+                        "mDataProp": "something",
+                        "sTitle":"Ще шось"
+                    }]
+                });
+
                 $svgPaths.each(function( index ) {
                     var $this = $(this),
                         id = $this.attr('id');
@@ -153,6 +201,7 @@ document.addEventListener(
                     }
 
                     $('.popover-dismiss').popover({
+                        //trigger: 'hover',
                         html: true,
                         placement: 'top',
                         container: 'body',
@@ -162,8 +211,12 @@ document.addEventListener(
                             return popoverHTML;
                         },
                         content: function() {
-                            var popoverHTML = '<a href="http://google.com">test link</a>' ;
-                            popoverHTML = popoverHTML + $(this).data('posipak');
+                            var popoverHTML = '<a href="/region/' + $(this).data('oid') + '">' +
+                                '<p>Пепів: ' +  $(this).data('pep') + '</p>'
+                                +  '<p>Посіпак: ' +  $(this).data('posipak')  + '</p>'
+                                +  '<p>Ще шось: ' +  $(this).data('something')  + '</p>'
+                                + '</a>' ;
+
                             return popoverHTML;
                         }
                     });
@@ -182,10 +235,10 @@ $(document).on('show.bs.popover', function() {
     });
 
     $(document).ready(function() {
-        populateSVGmap();
+        populateUaMap();
 
-        //setExFormStateFromUrl();
-        //setDropdownsValue();
+        setExFormStateFromUrl();
+        setDropdownsValue();
 
         /*$(".search-name").typeahead({
             minLength: 2,

@@ -2,6 +2,16 @@
 @import 'variables';
 @import 'bootswatch';
 
+@import 'https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css';
+
+@import 'custom_variables';
+@import 'utilites/_lists.scss';
+@import 'utilites/mixins';
+
 @import 'base';
+@import 'forms';
 @import 'blocks/nav';
 @import 'blocks/footer';
+@import 'blocks/search-block';
+
+@import 'pages/search';
