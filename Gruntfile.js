@@ -19,6 +19,7 @@ module.exports = function(grunt) {
                 files: {
                     "index.html": "src/index.html",
                     "search.html": "src/search.html",
+                    "profile.html": "src/profile.html"
                 }
             }
         },
