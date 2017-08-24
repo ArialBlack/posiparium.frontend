@@ -18,3 +18,19 @@
     height: 747px;
   }
 }
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: flex-start;
+  width: 100%;
+
+  .page-item {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
+}

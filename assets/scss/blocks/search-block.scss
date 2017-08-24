@@ -161,90 +161,108 @@
   }
 }
 
-.small-profile {
-  float: left;
-}
-
-.small-profile .box {
-  padding: 15px;
-  background: #fff url(../images/plashka.png) no-repeat 0 -55px;
-  min-height: 140px;
-}
-.small-profile img {
-  height: 60px;
-  width: auto;
-}
-.small-profile .avatar {
-  margin-right: 30px;
-  display: block;
-  height: 60px;
-  width: 60px;
-}
-.small-profile h3 {
-  font-family: 'arsenalregular';
-  font-weight: normal;
-  font-size: 20px;
-  margin-top: 0;
-  text-transform: uppercase;
-}
-.small-profile h3 span {
-  text-transform: capitalize;
-}
-.small-profile .descr {
-  margin-left: 90px;
-}
-.small-profile .descr p {
-  margin-bottom: 0;
-}
-.small-profile .descr span.small-tip {
-  font-size: 12px;
-  margin-left: -45px;
-  color: #7B7B7B;
-}
-.small-profile.fizik .avatar {
-  background: url(../images/short-avatar.png) no-repeat left;
-}
-.small-profile.yurik .box {
-  background: #fff url(../images/fplashka.png)no-repeat 0 -55px;
-}
-.small-profile.yurik .avatar {
-  background: url(../images/short-avatar.png) no-repeat -60px 0px;
-}
-.small-profile.linked .box {
-  background: #fff url(../images/lplashka.png)no-repeat 0 -55px;
-}
-.small-profile.linked .avatar {
-  background: url(../images/short-avatar.png) no-repeat -120px 0px;
-}
-
 .box {
   background: none repeat scroll 0 0 #fff;
   border: 0 none;
   border-radius: 2px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
-  padding: 24px;
-  margin-bottom: 40px;
-}
-.box {
-  margin-top: 10px;
-  background: #fff url(../images/plashka.png) no-repeat top;
   padding: 30px;
 }
-.box .avatar {
+
+.small-profile {
   float: left;
-  margin-right: 50px;
+
+  .box {
+    padding: 15px;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+      height: 50px;
+      left: 0;
+      top: 0;
+      @include blueGradient();
+    }
+
+    &:hover {
+      box-shadow: inset 0 3px 10px rgba(0,0,0,0.23), inset 0 3px 10px rgba(0,0,0,0.16);
+      cursor: pointer;
+    }
+  }
+
+  .profile-header {
+    position: relative;
+    z-index: 1;
+  }
+
+  .avatar {
+    float: left;
+    margin-right: 30px;
+    display: block;
+    height: 100px;
+    width: 100px;
+
+    img {
+      height: 100px;
+      width: auto;
+    }
+
+    &.no-foto {
+      position: relative;
+      background: #eceeef;
+
+      &:after {
+        content: "\f3a0";
+        font-family: "Ionicons";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0.5;
+        font-size: 100px;
+      }
+    }
+  }
+
+  .name {
+    color: #FFFFFF;
+    font-size: 28px;
+    margin-top: 10px;
+  }
+
+  .pib {
+    display: block;
+    text-transform: none;
+  }
+
+  h3 {
+     font-weight: normal;
+     font-size: 20px;
+     margin-top: 0;
+     text-transform: uppercase;
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+
+  .descr {
+    margin-left: 90px;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    span.small-tip {
+      font-size: 12px;
+      margin-left: -45px;
+      color: #7B7B7B;
+    }
+
+  }
+
 }
-.pep-name {
-  color: #FFFFFF;
-  font-size: 28px;
-  margin-top: 10px;
-}
-.pep-pib {
-  display: block;
-  text-transform: none;
-}
-
-
-
-
-
