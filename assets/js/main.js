@@ -224,21 +224,49 @@ document.addEventListener(
             });
     }
 
-$(document).on('show.bs.popover', function() {
-    $('.popover').not(this).popover('hide');
-});
+    $(document).on('show.bs.popover', function() {
+        $('.popover').not(this).popover('hide');
+    });
 
+    //todo
     $('#ua-map svg path').mouseenter(function() {
         $(this).attr('fill', '#ccc');
     }).mouseleave(function() {
         $(this).attr('fill', '#000');
     });
 
+    function wrapPosipakyList() {
+        var $container = $('.small-profile .posipaky');
+
+        $container.each(function( index ) {
+            var $this = $(this),
+                $item = $this.find('.link_nb');
+
+            if($item.length > 3) {
+                $this.find('.link_nb:nth-child(4)').after("<a href='#' class='show-more'>Показати всіх</a>").nextAll().addClass('hidden');
+            }
+        });
+
+        $(document).on('click', '.show-more', function(e){
+            e.preventDefault();
+            $(e.target).parents('.small-profile').addClass('open');
+            $('body').addClass('open');
+        });
+
+        $(document).click(function(event) {
+            if(!$(event.target).closest('.small-profile').length) {
+                $('.small-profile').removeClass('open');
+                $('body').removeClass('open');
+            }
+        });
+    }
+
     $(document).ready(function() {
         populateUaMap();
 
         setExFormStateFromUrl();
         setDropdownsValue();
+        wrapPosipakyList();
 
         /*$(".search-name").typeahead({
             minLength: 2,
