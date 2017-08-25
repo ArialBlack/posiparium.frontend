@@ -34,3 +34,30 @@
     align-self: auto;
   }
 }
+
+.hide {
+  display: none !important;
+}
+
+.tab-content {
+  background: #d8d8d8;
+
+  .top_block,
+  .bottom_block {
+    padding: 35px 25px;
+  }
+
+  .bottom_block {
+    background: #f4f4f4;
+  }
+}
+
+.blue-bg,
+.link_nb span.blue {
+  background: $decl-blue;
+}
+
+.yellow-bg,
+.link_nb span.yellow {
+  background: $minion-yellow;
+}

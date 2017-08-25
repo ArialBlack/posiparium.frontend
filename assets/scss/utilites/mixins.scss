@@ -83,6 +83,14 @@ S - the font-size in pixels
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e68f6', endColorstr='#01adef',GradientType=1 );
 }
 
+@mixin yellowGradient() {
+  background: $minion-yellow;
+  background: -moz-linear-gradient(left, #fa8e5d 0%, #f4b94f 100%);
+  background: -webkit-linear-gradient(left, #fa8e5d 0%,#f4b94f 100%);
+  background: linear-gradient(to right, #fa8e5d 0%,#f4b94f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa8e5d', endColorstr='#f4b94f',GradientType=1 );
+}
+
 @mixin gradient-text($gradient) {
   @supports(mix-blend-mode: lighten) {
     display: inline-block;

@@ -258,8 +258,18 @@ document.addEventListener(
                 $('.small-profile').removeClass('open');
                 $('body').removeClass('open');
             }
+
+            if(!$(event.target).closest('.float-search').length && $('body.open-search').length) {
+                $('body').removeClass('open-search');
+            }
         });
     }
+
+    $(document).on('click', '.inner-search-button', function(e){
+        e.preventDefault();
+        $('body').addClass('open-search');
+    });
+
 
     $(document).ready(function() {
         populateUaMap();
