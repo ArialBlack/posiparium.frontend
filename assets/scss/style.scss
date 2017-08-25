@@ -9,6 +9,7 @@
 @import 'utilites/_lists.scss';
 @import 'utilites/mixins';
 
+@import 'typo';
 @import 'base';
 @import 'forms';
 @import 'blocks/nav';
@@ -17,3 +18,4 @@
 
 @import 'pages/search';
 @import 'pages/front';
+@import 'pages/profile';
