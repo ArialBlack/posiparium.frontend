@@ -249,7 +249,7 @@
   overflow: hidden;
   clear: both;
   border-top: 1px solid #e3e3e3;
-  padding: 5px 0 !important;
+  padding: 5px 0;
   color: $text;
 
   &.hidden {
@@ -261,20 +261,6 @@
     color: white;
     border-radius: 2px;
     padding: 0 7px 2px 7px;
-  }
-}
-
-.profile {
-  .link_nb {
-    position: relative;
-
-    span {
-      position: absolute;
-      right: 0;
-      left: auto;
-      top: 50%;
-      transform: translateY(-50%);
-    }
   }
 }
 

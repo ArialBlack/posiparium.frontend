@@ -32,7 +32,7 @@
                     <div class="input-group search-string">
                         <input type="text" name="q" class="form-control search-name" id="search-form" placeholder="Наприклад: Айварас Абромавичус; Суддя; Хмельницька область; Державна фіскальна служба" autocomplete="off" value="">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"> <span class="glyphicon glyphicon-search"></span> </button>
+                            <button class="btn btn-default" type="submit"><i class="icon ion-search"></i></button>
                         </span>
                     </div>
                     <a class="ex-search-link" role="button" data-toggle="collapse" href="#collapseExSearch" aria-expanded="false" aria-controls="collapseExSearch">
@@ -144,7 +144,28 @@
 
     <section class="search-results">
         <div class="container">
-            <h2 class="text-center">Заголовок</h2>
+            <div class="display-options">
+                <!-- todo: align, styles, cookies -->
+                <span class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="filter-paid" checked="checked">
+                            <span class="checkbox-material"><span class="check"></span></span>
+                            <span>На платній основі</span>
+                        </label>
+                    </div>
+                </span>
+                <span class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="filter-free" checked="checked">
+                            <span class="checkbox-material"><span class="check"></span></span>
+                            <span>На загальних засадах</span>
+                        </label>
+                    </div>
+                </span>
+            </div>
+            <h2>Київська область</h2>
 
             <div class="row">
                 <div class="small-profile col-sm-6" itemscope="" itemtype="http://schema.org/Person">
